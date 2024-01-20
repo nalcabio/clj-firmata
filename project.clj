@@ -1,6 +1,6 @@
-(defproject clj-firmata "2.1.2-SNAPSHOT"
+(defproject bio.nalca/clj-firmata "2.1.2"
   :description "A Standard Firmata (http://firmata.org/) client."
-  :url "https://github.com/peterschwarz/clj-firmata"
+  :url "https://github.com/nalcabio/clj-firmata"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -13,10 +13,17 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.238"]
                  [org.clojure/core.async "0.4.474"]
-                 [clj-serial "2.0.3"]]
+                 [bio.nalca/clj-serial "2.0.6"]]
+
+  :repositories [["bio.nalca/clj-serial" {:url "https://maven.pkg.github.com/nalcabio/clj-serial"
+                                          :username :env/GITHUB_USERNAME
+                                          :password :env/GITHUB_PASSWORD}]]
+  :deploy-repositories [["releases" {:url "https://maven.pkg.github.com/nalcabio/clj-firmata"
+                                     :username :env/GITHUB_USERNAME
+                                     :password :env/GITHUB_PASSWORD}]]
 
   :scm {:name "git"
-        :url "https://github.com/peterschwarz/clj-firmata"}
+        :url "https://github.com/nalcabio/clj-firmata"}
 
   :profiles {:dev {:plugins [[lein-cloverage "1.0.2"]
                              [lein-cljsbuild "1.1.5"]
